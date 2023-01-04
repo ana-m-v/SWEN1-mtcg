@@ -68,11 +68,8 @@ class UserRepositoryTest {
         userRepository.updateStats("gimli", true);
         userRepository.updateStats("legolas", false);
 
-        // get wins
-        // get losses
+        // get wins and losses
 
         userRepository.getStats("gimli");
-
-//        assertEquals(scoreboardList.get(0).getUsername(), "ana");
     }
 }
