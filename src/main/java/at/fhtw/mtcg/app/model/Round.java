@@ -66,17 +66,12 @@ public class Round {
         return isLucky < 3;
     }
     public String fight() {
-        Random rand2 = new Random();
-        int randomValue2 = rand2.nextInt(2);
-
-        System.out.println("just ran nr is " + randomValue2);
-
 
         String log = "";
         String finalLog = "";
 
         log = log + "Player 1: " + this.player1 + " draws " + cardPlayer1.getName().name() + " (damage: " + cardPlayer1.getDamage() + ")\n" + "Player 2: " + this.player2 + " draws " + cardPlayer2.getName().name() + " (damage: " + cardPlayer2.getDamage() + ")\n";
-//
+
         if(isLucky() && Objects.equals(cardPlayer1.getDamage(), cardPlayer2.getDamage())) {
             String[] whoIsLuckyPlayer = new String[2];
             Card[] whichIsLuckyCard = new Card[2];
@@ -107,9 +102,6 @@ public class Round {
 
             float card1Damage = cardPlayer1.recalibrateDamage(cardPlayer2);
             float card2Damage = cardPlayer2.recalibrateDamage(cardPlayer1);
-            //
-//        float card1 = cardPlayer1.recalibrateDamage(cardPlayer2);
-//        float card2 = cardPlayer2.recalibrateDamage(cardPlayer1);
 
             if (cardPlayer1.getDamage() > cardPlayer2.getDamage()) {
                 cardPlayer2.setDamage(cardPlayer2.getDamage() - cardPlayer1.getDamage());
@@ -125,26 +117,6 @@ public class Round {
             }
         }
         return log;
-//        if(card1 > card2) {
-//            cardPlayer2.setDamage(cardPlayer2.getDamage() - cardPlayer1.getDamage());
-//        }
-//        else if(card2 > card1) {
-//            cardPlayer1.setDamage(cardPlayer1.getDamage() - cardPlayer2.getDamage());
-//        }
-
-//        if(cardPlayer1.getDamage() > cardPlayer2.getDamage()) {
-//            cardPlayer2.setDamage(cardPlayer2.getDamage() - cardPlayer1.getDamage());
-//        }
-//        else if(cardPlayer1.getDamage() < cardPlayer2.getDamage()) {
-//            cardPlayer1.setDamage(cardPlayer1.getDamage() - cardPlayer2.getDamage());
-//        }
-//
-//        else if(Objects.equals(cardPlayer1.getDamage(), cardPlayer2.getDamage())){
-////            System.out.println("Equal damage");
-//        }
-//        else {
-//            cardPlayer1.setDamage(cardPlayer1.getDamage() - cardPlayer2.getDamage());
-//        }
     }
     public String calculateDamage() {
         String log = null;
@@ -332,13 +304,6 @@ public class Round {
                 System.out.println("Regular vs Water");
 
             }
-//            else {
-//                cardPlayer1.setDamage(cardPlayer1.getDamage());
-//                cardPlayer2.setDamage(cardPlayer2.getDamage());
-//
-//                log = log + "\nStats:\n" + player1 + "'s " + cardPlayer1.getName().name() + " has " + cardPlayer1.getDamage() + " HP.\n" + player2 + "'s " + cardPlayer2.getName().name() + " has " + cardPlayer2.getDamage() + " HP.\n";
-//
-//            }
 
             if(cardPlayer1.getDamage() > cardPlayer2.getDamage()) {
                 cardPlayer2.setDamage(cardPlayer2.getDamage() - cardPlayer1.getDamage());
@@ -409,12 +374,6 @@ public class Round {
                 System.out.println("Regular vs Fire");
 
             }
-//            else {
-//                cardPlayer1.setDamage(cardPlayer1.getDamage());
-//                cardPlayer2.setDamage(cardPlayer2.getDamage());
-//                log = log + "\nStats:\n" + player1 + "'s " + cardPlayer1.getName().name() + " has " + cardPlayer1.getDamage() + " HP.\n" + player2 + "'s " + cardPlayer2.getName().name() + " has " + cardPlayer2.getDamage() + " HP.\n";
-//
-//            }
 
             if(cardPlayer1.getDamage() > cardPlayer2.getDamage()) {
                 cardPlayer2.setDamage(cardPlayer2.getDamage() - cardPlayer1.getDamage());

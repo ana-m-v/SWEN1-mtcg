@@ -13,8 +13,6 @@ public class ScoreboardService implements Service {
 
 
     private final ScoreboardController scoreboardController;
-
-
     public ScoreboardService() {
         this.scoreboardController = new ScoreboardController(new ScoreboardRepository(), new UserRepository());
     }

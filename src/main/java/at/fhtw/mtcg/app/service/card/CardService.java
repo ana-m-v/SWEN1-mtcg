@@ -46,7 +46,6 @@ public class CardService implements Service {
         }
 
         else if(request.getMethod() == Method.POST && request.getPathParts().size() > 1) {
-            System.out.println("ANOTHER TRADE");
             String authorization = request.getHeaderMap().getHeader("Authorization");
             String token;
 
@@ -60,7 +59,6 @@ public class CardService implements Service {
         }
 
         else if(request.getMethod() == Method.POST && request.getPathname().equals("/tradings")) {
-            System.out.println("Trading handler");
             String authorization = request.getHeaderMap().getHeader("Authorization");
             String token;
 

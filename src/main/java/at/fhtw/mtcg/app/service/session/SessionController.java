@@ -17,27 +17,6 @@ public class SessionController extends Controller {
         this.userRepository = userRepository;
     }
 
-    public Response getUserByUsername(String username)
-    {
-        try {
-            User userData = this.userRepository.getUserById(Integer.valueOf(username));
-            String userDataJSON = this.getObjectMapper().writeValueAsString(userData);
-
-            return new Response(
-                    HttpStatus.OK,
-                    ContentType.JSON,
-                    userDataJSON
-            );
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            return new Response(
-                    HttpStatus.INTERNAL_SERVER_ERROR,
-                    ContentType.JSON,
-                    "{ \"message\" : \"Internal Server Error\" }"
-            );
-        }
-    }
-
     public Response loginUser(Request request) {
         try {
             User userData = this.getObjectMapper().readValue(request.getBody(), User.class);
@@ -83,5 +62,26 @@ public class SessionController extends Controller {
                 ContentType.JSON,
                 "{ \"message\" : \"Internal Server Error\" }"
         );
+    }
+
+    public Response getUserByUsername(String username)
+    {
+        try {
+            User userData = this.userRepository.getUserById(Integer.valueOf(username));
+            String userDataJSON = this.getObjectMapper().writeValueAsString(userData);
+
+            return new Response(
+                    HttpStatus.OK,
+                    ContentType.JSON,
+                    userDataJSON
+            );
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return new Response(
+                    HttpStatus.INTERNAL_SERVER_ERROR,
+                    ContentType.JSON,
+                    "{ \"message\" : \"Internal Server Error\" }"
+            );
+        }
     }
 }

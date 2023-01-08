@@ -14,8 +14,6 @@ public class ScoreboardController extends Controller {
 
     private ScoreboardRepository scoreboardRepository;
     private UserRepository userRepository;
-
-
     public ScoreboardController(ScoreboardRepository scoreboardRepository, UserRepository userRepository) {
         this.scoreboardRepository = scoreboardRepository;
         this.userRepository = userRepository;

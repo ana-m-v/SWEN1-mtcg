@@ -23,8 +23,6 @@ public class CardController extends Controller {
         this.userRepository = userRepository;
     }
 
-    ;
-
     public Response showAllCards(String token) {
 
         try {
@@ -68,10 +66,7 @@ public class CardController extends Controller {
             } else {
 //                String tradeDataString;
                 String username = this.userRepository.tokenToUsername(token);
-                Integer userId = this.userRepository.usernameToId(username);
-//                tradeData = this.getObjectMapper().readValue(request.getBody(), new TypeReference<String>() {});
                 Trade trade = this.getObjectMapper().readValue(request.getBody(), Trade.class);
-                String tradeDataJSON = this.getObjectMapper().writeValueAsString(trade);
 
                 String[] tradeData = new String[4];
                 tradeData[0] = trade.getTradingId();

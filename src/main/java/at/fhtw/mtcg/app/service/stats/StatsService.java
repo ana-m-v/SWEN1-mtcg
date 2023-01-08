@@ -11,11 +11,6 @@ import at.fhtw.mtcg.server.Service;
 public class StatsService implements Service {
 
     private final StatsController statsController;
-
-
-    //    public StatsService() {
-//        this.statsController = new StatsController(new StatsDAL(), new SessionDAL(), new UserDAL());
-//    }
     public StatsService() {
         this.statsController = new StatsController(new UserRepository());
     }

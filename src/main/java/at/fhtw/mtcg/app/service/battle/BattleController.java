@@ -12,6 +12,7 @@ import at.fhtw.mtcg.server.Response;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class BattleController extends Controller {
 
@@ -19,14 +20,11 @@ public class BattleController extends Controller {
     private CardRepository cardRepository;
     private UserRepository userRepository;
 
-    private Integer playerCounter = 0;
-
     public BattleController(BattleRepository battleRepository, CardRepository cardRepository, UserRepository userRepository) {
         this.battleRepository = battleRepository;
         this.cardRepository = cardRepository;
         this.userRepository = userRepository;
     }
-
 
     public synchronized Response battle(String token) {
         try {
@@ -39,6 +37,7 @@ public class BattleController extends Controller {
             } else {
                 String player = this.userRepository.tokenToUsername(token);
                 Integer battle_id = 0;
+
                 if (this.battleRepository.getPlayer1() == null) {
                     this.battleRepository.enterBattlePlayer1(player);
                     return new Response(
@@ -85,8 +84,6 @@ public class BattleController extends Controller {
                     // if card is null
                     log.append(round.fight());
 
-//                    String roundLog = round.calculateDamage();
-//                    System.out.println("LOG " + roundLog);
                     // add battle log
                     if (player1Card.getDamage() == 0) {
                         Card card = this.battleRepository.extractWonCard(player1Ready, player1Card.getCardId());
@@ -102,12 +99,6 @@ public class BattleController extends Controller {
                 }
                 if (winner == null && loser == null) {
                     log.insert(0, "\nIt's a tie!");
-//                    return new Response(
-//                            HttpStatus.OK,
-//                            ContentType.JSON,
-//                            log.toString()
-////                            "{ \"message\" : \"It's a tie!\"}"
-//                    );
                 } else {
                     System.out.println("winner of the battle " + winner);
                     this.userRepository.updateStats(winner, true);
@@ -121,7 +112,6 @@ public class BattleController extends Controller {
                         HttpStatus.OK,
                         ContentType.JSON,
                         log.toString()
-//                        "{ \"message\" : \"Player " + winner + " has won\" " + log + " }"
                 );
             }
         } catch (Exception e) {

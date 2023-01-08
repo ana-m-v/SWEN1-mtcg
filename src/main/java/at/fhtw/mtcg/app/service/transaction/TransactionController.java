@@ -195,7 +195,6 @@ public class TransactionController extends Controller {
                     for(int i = 0; i < 5; i++) {
                         this.cardRepository.assignToPackage(username, cardsToAdd.get(i));
                     }
-//                    this.transactionDAL.assignPackage(username, cardPackage);
                     this.cardRepository.deletePackage(cardPackage);
 
                     return new Response(

@@ -35,7 +35,6 @@ public class BattleService implements Service {
             else {
                 token = authorization.split(" ")[1];
             }
-
             return this.battleController.battle(token);
         }
 

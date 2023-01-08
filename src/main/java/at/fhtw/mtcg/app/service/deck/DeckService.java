@@ -13,7 +13,6 @@ public class DeckService implements Service {
 
     private final DeckController deckController;
 
-
     public DeckService() {
         this.deckController = new DeckController(new CardRepository(), new UserRepository());
     }

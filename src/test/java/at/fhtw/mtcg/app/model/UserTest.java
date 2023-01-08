@@ -2,6 +2,10 @@ package at.fhtw.mtcg.app.model;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.*;
+import java.net.URL;
+import java.net.URLConnection;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserTest {

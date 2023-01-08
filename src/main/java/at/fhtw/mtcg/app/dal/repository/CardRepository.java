@@ -100,8 +100,6 @@ public class CardRepository {
             preparedStatement.setString(1, tradeData);
             preparedStatement.setString(2, username);
 
-//            preparedStatement.setString(2, user.getPassword());
-
             preparedStatement.execute();
             unitOfWork.commitTransaction();
             ResultSet resultSet = preparedStatement.getResultSet();

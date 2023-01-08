@@ -155,11 +155,11 @@ echo .
 # --------------------------------------------------
 echo "13) show configured deck different representation"
 echo "kienboec"
-curl -X GET http://localhost:10001/deck?format=plain --header "Authorization: Bearer kienboec-mtcgToken"
+curl -X GET "http://localhost:10001/deck?format=plain" --header "Authorization: Bearer kienboec-mtcgToken"
 echo .
 echo .
 echo "altenhof"
-curl -X GET http://localhost:10001/deck?format=plain --header "Authorization: Bearer altenhof-mtcgToken"
+curl -X GET "http://localhost:10001/deck?format=plain" --header "Authorization: Bearer altenhof-mtcgToken"
 echo .
 echo .
 
