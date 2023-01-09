@@ -56,7 +56,6 @@ CREATE TABLE IF NOT EXISTS battle(
 battle_id serial PRIMARY KEY,
 player1 VARCHAR NOT NULL,
 player2 VARCHAR,
-battle_log VARCHAR
 );
 
 CREATE TABLE IF NOT EXISTS battlelog(
